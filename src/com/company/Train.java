@@ -21,4 +21,28 @@ public class Train {
     public void notifySubscribers() {
 
     }
+
+    public ArrayList<Subscriber> getSubscribers() {
+        return this.subscribers;
+    }
+
+    public void addSubscriber(Subscriber subscriber) {
+        this.subscribers.add(subscriber);
+    }
+
+    public void removeSubscriber(Subscriber subscriber) {
+        this.subscribers.remove(subscriber);
+    }
+
+    public ArrayList<Compartment> getCompartments() {
+        return this.compartments;
+    }
+
+    public void addCompartment(Compartment compartment) {
+        this.compartments.add(compartment);
+    }
+
+    public void removeCompartment(Compartment compartment) {
+        this.compartments.remove(compartment);
+    }
 }

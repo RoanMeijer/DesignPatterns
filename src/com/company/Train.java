@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 
 public class Train {
-    private ArrayList<Coupe> coupes;
+    private ArrayList<Compartment> compartments;
     private ArrayList<Subscriber> subscribers;
 
     public Train() {

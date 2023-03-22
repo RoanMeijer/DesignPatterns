@@ -6,7 +6,7 @@ import com.company.emotion.EmotionType;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-abstract class Passenger {
+public abstract class Passenger {
     private ArrayList<Emotion> emotions;
     private Ticket ticket;
     private HashMap<EmotionType, Float> emotionModifiers;
@@ -38,6 +38,14 @@ abstract class Passenger {
 
     private HashMap<EmotionType, Float> getEmotionModifiers() {
         return this.emotionModifiers;
+    }
+
+    private void addEmotionModifier(EmotionType emotionType, Float value) {
+        this.emotionModifiers.put(emotionType, value);
+    }
+
+    private void removeEmotionModifier(EmotionType emotionType) {
+        this.emotionModifiers.remove(emotionType);
     }
 
     private ArrayList<String> getFailCauses() {

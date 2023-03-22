@@ -2,14 +2,53 @@ package com.company.passenger;
 
 import com.company.emotion.Emotion;
 import com.company.Ticket;
-
+import com.company.emotion.EmotionType;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 abstract class Passenger {
     private ArrayList<Emotion> emotions;
     private Ticket ticket;
-//    private HashMap<EmotionType, float> emotionModifiers;
+    private HashMap<EmotionType, Float> emotionModifiers;
+    private ArrayList<String> failCauses;
+
     public Passenger() {
 
+    }
+
+    private ArrayList<Emotion> getEmotions() {
+        return this.emotions;
+    }
+
+    private void addEmotion(Emotion emotion) {
+        this.emotions.add(emotion);
+    }
+
+    private void removeEmotion(Emotion emotion) {
+        this.emotions.remove(emotion);
+    }
+
+    private Ticket getTicket() {
+        return this.ticket;
+    }
+
+    private void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
+    private HashMap<EmotionType, Float> getEmotionModifiers() {
+        return this.emotionModifiers;
+    }
+
+    private ArrayList<String> getFailCauses() {
+        return this.failCauses;
+    }
+
+    private void addFailCause(String failCause) {
+        this.failCauses.add(failCause);
+    }
+
+    private void removeFailCause(String failCause) {
+        this.failCauses.remove(failCause);
     }
 }

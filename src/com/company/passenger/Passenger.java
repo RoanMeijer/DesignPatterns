@@ -6,7 +6,7 @@ import com.company.emotion.EmotionType;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-abstract class Passenger {
+public abstract class Passenger {
     private ArrayList<Emotion> emotions;
     private Ticket ticket;
     private HashMap<EmotionType, Float> emotionModifiers;

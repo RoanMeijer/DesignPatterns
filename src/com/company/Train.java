@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.compartment.Compartment;
+
 import java.util.ArrayList;
 
 public class Train {

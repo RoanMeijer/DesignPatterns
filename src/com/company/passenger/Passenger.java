@@ -1,7 +1,9 @@
-package com.company;
+package com.company.passenger;
+
+import com.company.emotion.Emotion;
+import com.company.Ticket;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 abstract class Passenger {
     private ArrayList<Emotion> emotions;

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.emotion;
 
 public enum EmotionType {
 

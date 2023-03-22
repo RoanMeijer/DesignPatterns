@@ -1,7 +1,5 @@
 package com.company.compartment;
 
-import com.company.Compartment;
-
 import java.time.Instant;
 
 public class BarCompartment implements Compartment {

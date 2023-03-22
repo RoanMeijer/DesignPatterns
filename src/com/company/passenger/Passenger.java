@@ -7,13 +7,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Passenger {
+    private String name;
     private ArrayList<Emotion> emotions;
     private Ticket ticket;
     private HashMap<EmotionType, Float> emotionModifiers;
     private ArrayList<String> failCauses;
 
-    public Passenger() {
+    public Passenger(String name) {
+        this.name = name;
+    }
 
+    private void update() {
+
+    }
+
+    private String getName() {
+        return this.name;
+    }
+
+    private void setName(String name) {
+        this.name = name;
     }
 
     private ArrayList<Emotion> getEmotions() {

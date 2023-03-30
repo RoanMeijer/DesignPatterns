@@ -14,6 +14,7 @@ public abstract class Passenger {
     private ArrayList<String> failCauses;
 
     public Passenger(String name) {
+        this.emotions = new ArrayList<>();
         this.name = name;
     }
 

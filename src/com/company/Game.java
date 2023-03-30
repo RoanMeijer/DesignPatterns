@@ -1,16 +1,17 @@
 package com.company;
 
-import com.company.compartment.BarCompartment;
 import com.company.compartmentFactory.BarCompartmentFactory;
 import com.company.compartmentFactory.FirstClassCompartmentFactory;
-import com.company.passenger.Passenger;
+import com.company.passenger.*;
+import com.company.state.GameState;
+import com.company.state.StartState;
 import com.company.state.State;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
-    private State state;
+    private State currentState;
     private Train train;
     private Passenger passenger;
 
@@ -18,20 +19,47 @@ public class Game {
         this.passenger = passenger;
     }
 
-    public void startGame(){
+    public void startSetupGame(){
         // Print banner
         welcomeMessage();
-
+        this.currentState = new StartState();
         // Example of how to use the option selector
         ArrayList<String> options = new ArrayList<String>();
-        options.add("blond");
-        options.add("bruin");
-        options.add("rood");
-        options.add("zwart");
-        int selectedOption = optionSelector(options);
-
+        options.add("Businessman");
+        options.add("Grandma");
+        options.add("Hooligan");
+        options.add("Karen");
+        optionSelector(options);
+        this.currentState = new GameState();
+        System.out.println(train.getCompartments());
+//        int selectedOption = optionSelector(options);
+//        this.passenger = createCharacter(optionSelector(options));
         setupTrain();
         System.out.println(train.getCompartments());
+    }
+
+
+
+    public void changeState(State state) {
+        this.currentState = state;
+    }
+
+    public void selectedOption(int optionSelected) {
+        switch (optionSelected) {
+            case 1 -> currentState.pressButton1(this);
+            case 2 -> currentState.pressButton2(this);
+            case 3 -> currentState.pressButton3(this);
+            default -> currentState.pressButton4(this);
+        };
+    }
+
+    public Passenger createCharacter(int optionSelected) {
+        return switch (optionSelected) {
+            case 1 -> new Businessman("You");
+            case 2 -> new Grandma("You");
+            case 3 -> new Hooligan("You");
+            default -> new Karen("You");
+        };
     }
 
     public void displayScenario(){
@@ -45,8 +73,7 @@ public class Game {
         this.train.addCompartment(FirstClassCompartmentFactory.createCompartment());
     }
     
-    private int optionSelector(ArrayList<String> options){
-        while (true) {
+    private void optionSelector(ArrayList<String> options){
             for (int i = 1; i <= options.size(); i++) {
                 System.out.println("Select " + i + " for " + options.get(i - 1));
             }
@@ -58,11 +85,10 @@ public class Game {
                     throw new IndexOutOfBoundsException();
                 }
                 System.out.println("you have selected option " + selectedOption + " : " + options.get(selectedOption - 1));
-                return selectedOption;
+                selectedOption(selectedOption);
             } catch (Exception e) {
                 System.out.println("Please enter a number within the range of 1 - 4");
             }
-        }
     }
     
     private void welcomeMessage(){
@@ -90,6 +116,9 @@ public class Game {
                 "                                                                             " + "\u001B[0m");
         System.out.println("================================================================================");
         System.out.println("================================================================================");
+        System.out.println("Welcome to the train simulation game");
+        System.out.println("First choose the character you want to play during the game:");
+
     }
 
 }

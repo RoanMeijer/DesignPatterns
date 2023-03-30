@@ -22,12 +22,12 @@ public abstract class Passenger {
 
     }
 
-    public abstract void feelingHappier();
-    public abstract void feelingLessHappy();
-    public abstract void feelingStressed();
-    public abstract void feelingLessStressed();
-    public abstract void feelingAngry();
-    public abstract void feelingLessAngry();
+    public abstract void increaseHappiness();
+    public abstract void decreaseHappiness();
+    public abstract void increaseStress();
+    public abstract void decreaseStress();
+    public abstract void increaseAnger();
+    public abstract void decreaseAnger();
 
     private String getName() {
         return this.name;

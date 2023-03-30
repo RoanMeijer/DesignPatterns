@@ -2,7 +2,19 @@ package com.company.state;
 
 import com.company.Game;
 
+import java.util.ArrayList;
+
 public class EndState  extends State {
+    private final ArrayList<String> options;
+
+    public EndState() {
+        options = new ArrayList<>();
+        options.add("");
+        options.add("");
+        options.add("");
+        options.add("");
+    }
+
     @Override
     public void pressButton1(Game game) {
 
@@ -21,5 +33,9 @@ public class EndState  extends State {
     @Override
     public void pressButton4(Game game) {
 
+    }
+
+    public ArrayList<String> getOptions() {
+        return this.options;
     }
 }

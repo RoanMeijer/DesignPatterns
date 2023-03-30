@@ -23,22 +23,17 @@ public class Game {
         // Print banner
         welcomeMessage();
         this.currentState = new StartState();
-        // Example of how to use the option selector
-        ArrayList<String> options = new ArrayList<String>();
-        options.add("Businessman");
-        options.add("Grandma");
-        options.add("Hooligan");
-        options.add("Karen");
-        optionSelector(options);
-        this.currentState = new GameState();
-        System.out.println(train.getCompartments());
-//        int selectedOption = optionSelector(options);
-//        this.passenger = createCharacter(optionSelector(options));
+        optionSelector(currentState.getOptions());
+        // When user choose character change state to game state
+        changeState(new GameState());
         setupTrain();
-        System.out.println(train.getCompartments());
+        startGame();
     }
 
-
+    public void startGame() {
+        System.out.println("********The game will start********");
+        displayScenario();
+    }
 
     public void changeState(State state) {
         this.currentState = state;
@@ -50,15 +45,6 @@ public class Game {
             case 2 -> currentState.pressButton2(this);
             case 3 -> currentState.pressButton3(this);
             default -> currentState.pressButton4(this);
-        };
-    }
-
-    public Passenger createCharacter(int optionSelected) {
-        return switch (optionSelected) {
-            case 1 -> new Businessman("You");
-            case 2 -> new Grandma("You");
-            case 3 -> new Hooligan("You");
-            default -> new Karen("You");
         };
     }
 

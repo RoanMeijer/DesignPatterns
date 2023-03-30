@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.compartment.BarCompartment;
+import com.company.compartmentFactory.BarCompartmentFactory;
+import com.company.compartmentFactory.FirstClassCompartmentFactory;
 import com.company.passenger.Passenger;
 import com.company.state.State;
 
@@ -16,19 +19,30 @@ public class Game {
     }
 
     public void startGame(){
+        // Print banner
         welcomeMessage();
+
+        // Example of how to use the option selector
         ArrayList<String> options = new ArrayList<String>();
         options.add("blond");
         options.add("bruin");
         options.add("rood");
         options.add("zwart");
-        optionSelector(options);
+        int selectedOption = optionSelector(options);
+
+        setupTrain();
+        System.out.println(train.getCompartments());
     }
+
     public void displayScenario(){
 
     }
-    public void setupTrain(){
 
+    public void setupTrain(){
+        this.train = new Train();
+        // Create a random amount and selection of compartments
+        this.train.addCompartment(BarCompartmentFactory.createCompartment());
+        this.train.addCompartment(FirstClassCompartmentFactory.createCompartment());
     }
     
     private int optionSelector(ArrayList<String> options){

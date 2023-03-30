@@ -5,7 +5,7 @@ import com.company.compartment.SilentCompartment;
 
 public class SilentCompartmentFactory extends CompartmentFactory{
 
-    Compartment createCompartment() {
+     public static Compartment createCompartment() {
         return new SilentCompartment();
     }
 }

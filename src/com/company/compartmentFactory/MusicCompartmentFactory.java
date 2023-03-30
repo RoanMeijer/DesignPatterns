@@ -5,7 +5,7 @@ import com.company.compartment.MusicCompartment;
 
 public class MusicCompartmentFactory extends CompartmentFactory{
 
-    Compartment createCompartment() {
+    public static Compartment createCompartment() {
         return new MusicCompartment();
     }
 }

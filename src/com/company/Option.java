@@ -9,6 +9,9 @@ public class Option {
     String description;
     Emotion outcomeType;
     int outcomeValue;
-//    HashMap<Compartment,int> specialCase;
+    HashMap<Compartment, Integer> specialCase;
 
+    public Option() {
+        this.specialCase = new HashMap<>();
+    }
 }

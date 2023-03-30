@@ -5,7 +5,7 @@ import com.company.compartment.FirstClassCompartment;
 
 public class FirstClassCompartmentFactory extends CompartmentFactory{
 
-    Compartment createCompartment() {
+    public static Compartment createCompartment() {
         return new FirstClassCompartment();
     }
 }

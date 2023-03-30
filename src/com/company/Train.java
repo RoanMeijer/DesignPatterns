@@ -9,7 +9,8 @@ public class Train {
     private ArrayList<Subscriber> subscribers;
 
     public Train() {
-
+        this.compartments = new ArrayList<>();
+        this.subscribers = new ArrayList<>();
     }
 
     public void subscribe() {

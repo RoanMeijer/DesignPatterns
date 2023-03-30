@@ -1,9 +1,11 @@
 package com.company;
 
+import java.time.LocalDateTime;
+
 public class Ticket {
     private String destination;
     private String origin;
-//    private LocalDateTime date;
+    private LocalDateTime date;
     private boolean firstClass;
     private float price;
 

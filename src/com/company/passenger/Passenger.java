@@ -1,5 +1,6 @@
 package com.company.passenger;
 
+import com.company.Game;
 import com.company.emotion.Emotion;
 import com.company.Ticket;
 import com.company.emotion.EmotionType;
@@ -9,7 +10,7 @@ import java.util.HashMap;
 public abstract class Passenger {
     private String name;
     private Ticket ticket;
-    private final HashMap<EmotionType, Float> emotions;
+    private final HashMap<EmotionType, Integer> emotions;
     private ArrayList<String> failCauses;
 
     public Passenger(String name) {
@@ -21,6 +22,13 @@ public abstract class Passenger {
 
     }
 
+    public abstract void feelingHappier();
+    public abstract void feelingLessHappy();
+    public abstract void feelingStressed();
+    public abstract void feelingLessStressed();
+    public abstract void feelingAngry();
+    public abstract void feelingLessAngry();
+
     private String getName() {
         return this.name;
     }
@@ -29,11 +37,15 @@ public abstract class Passenger {
         this.name = name;
     }
 
-    public HashMap<EmotionType, Float> getEmotions() {
+    public int getEmotion(EmotionType type) {
+        return emotions.get(type);
+    }
+
+    public HashMap<EmotionType, Integer> getEmotions() {
         return this.emotions;
     }
 
-    public void setEmotion(EmotionType type, float value) {
+    public void setEmotion(EmotionType type, Integer value) {
         this.emotions.put(type, value);
     }
 

@@ -8,13 +8,12 @@ import java.util.HashMap;
 
 public abstract class Passenger {
     private String name;
-    private ArrayList<Emotion> emotions;
     private Ticket ticket;
-    private HashMap<EmotionType, Float> emotionModifiers;
+    private final HashMap<EmotionType, Float> emotions;
     private ArrayList<String> failCauses;
 
     public Passenger(String name) {
-        this.emotions = new ArrayList<>();
+        this.emotions = new HashMap<>();
         this.name = name;
     }
 
@@ -30,16 +29,16 @@ public abstract class Passenger {
         this.name = name;
     }
 
-    private ArrayList<Emotion> getEmotions() {
+    public HashMap<EmotionType, Float> getEmotions() {
         return this.emotions;
     }
 
-    private void addEmotion(Emotion emotion) {
-        this.emotions.add(emotion);
+    public void setEmotion(EmotionType type, float value) {
+        this.emotions.put(type, value);
     }
 
-    private void removeEmotion(Emotion emotion) {
-        this.emotions.remove(emotion);
+    public void removeEmotion(EmotionType type) {
+        this.emotions.remove(type);
     }
 
     private Ticket getTicket() {
@@ -48,18 +47,6 @@ public abstract class Passenger {
 
     private void setTicket(Ticket ticket) {
         this.ticket = ticket;
-    }
-
-    private HashMap<EmotionType, Float> getEmotionModifiers() {
-        return this.emotionModifiers;
-    }
-
-    private void addEmotionModifier(EmotionType emotionType, Float value) {
-        this.emotionModifiers.put(emotionType, value);
-    }
-
-    private void removeEmotionModifier(EmotionType emotionType) {
-        this.emotionModifiers.remove(emotionType);
     }
 
     private ArrayList<String> getFailCauses() {

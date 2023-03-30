@@ -73,7 +73,8 @@ public class Game {
                 System.out.println("you have selected option " + selectedOption + " : " + options.get(selectedOption - 1));
                 selectedOption(selectedOption);
             } catch (Exception e) {
-                System.out.println("Please enter a number within the range of 1 - 4");
+                System.out.println("Please enter a valid number within the range of 1 - 4");
+                optionSelector(currentState.getOptions());
             }
     }
     

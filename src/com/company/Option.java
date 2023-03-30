@@ -1,13 +1,13 @@
 package com.company;
 
 import com.company.compartment.Compartment;
-import com.company.emotion.Emotion;
+import com.company.emotion.EmotionType;
 
 import java.util.HashMap;
 
 public class Option {
     String description;
-    Emotion outcomeType;
+    EmotionType outcomeType;
     int outcomeValue;
     HashMap<Compartment, Integer> specialCase;
 

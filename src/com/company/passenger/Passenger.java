@@ -1,7 +1,5 @@
 package com.company.passenger;
 
-import com.company.Game;
-import com.company.emotion.Emotion;
 import com.company.Ticket;
 import com.company.emotion.EmotionType;
 import java.util.ArrayList;

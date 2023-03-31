@@ -2,6 +2,8 @@ package com.company.state;
 
 import com.company.Game;
 import com.company.GameDialog;
+import com.company.Scenario;
+import com.company.ScenarioGenerator;
 import com.company.compartment.*;
 import com.company.emotion.EmotionType;
 
@@ -9,12 +11,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GameState extends State {
-    private final ArrayList<String> options;
-    private final ArrayList<Integer> consequence;
-    private final ArrayList<Integer> compartmentMultipliers;
+    private ArrayList<String> options;
+    private ArrayList<Integer> consequence;
+    private ArrayList<Integer> compartmentMultipliers;
     private EmotionType affectedEmotionType;
     private String scenarioDescription;
     private GameDialog gameDialog;
+    private ScenarioGenerator scenarioGenerator = new ScenarioGenerator();
 
     public GameState() {
         options = new ArrayList<>();
@@ -29,31 +32,15 @@ public class GameState extends State {
     }
 
     public void loadRandomScenario(){
-        scenarioDescription = "TEST SCENARIO!!!! 4 loud teenagers walk in to the compartment playing music";
-        options.clear();
-        options.add("Ignore");
-        options.add("Fight");
-        options.add("talk to them");
-        options.add("call police");
+        Scenario scenario = scenarioGenerator.getRandomScenario();
 
-        affectedEmotionType = EmotionType.ANGRY;
-        consequence.clear();
-        consequence.add(-1);
-        consequence.add(-3);
-        consequence.add(3);
-        consequence.add(-2);
+        scenarioDescription = scenario.getScenarioDescription();
+        options = scenario.getOptions();
 
-        compartmentMultipliers.clear();
-        //Bar
-        compartmentMultipliers.add(1);
-        //music
-        compartmentMultipliers.add(0);
-        //first class
-        compartmentMultipliers.add(2);
-        //second class
-        compartmentMultipliers.add(1);
-        //silent
-        compartmentMultipliers.add(3);
+        affectedEmotionType = scenario.getEffectedEmotionType();
+        consequence = scenario.getConsequences();
+
+        compartmentMultipliers = scenario.getCompartmentMultipliers();
     }
 
     public int getCurrentMultiplier(Game game){

@@ -33,6 +33,8 @@ public class Game {
         this.gameDialog = new GameDialog();
         this.keyboardHandler = new KeyboardHandler(this);
 
+        setupTrain();
+
         // Print banner
         gameDialog.PrintWelcomeMessage();
 
@@ -40,7 +42,7 @@ public class Game {
         this.currentState = new StartState();
         keyboardHandler.giveStateOptions();
 
-        setupTrain();
+
         startGame();
     }
 

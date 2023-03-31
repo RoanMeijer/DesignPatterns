@@ -97,6 +97,7 @@ public class Game {
                 gameDialog.printGameScenario(gameState.getScenarioDescription());
                 keyboardHandler.giveStateOptions();
             }
+            this.gameDialog.printIdleTrainNoise();
         }
 
         if(currentState instanceof GameState){

@@ -22,21 +22,33 @@ public class StartState extends State {
     @Override
     public void pressButton1(Game game) {
         game.setupPassenger(new Businessman("You"));
+
+        //change state to the in game state
+        game.setCurrentState(new GameState());
     }
 
     @Override
     public void pressButton2(Game game) {
         game.setupPassenger(new Grandma("You"));
+
+        //change state to the in game state
+        game.setCurrentState(new GameState());
     }
 
     @Override
     public void pressButton3(Game game) {
         game.setupPassenger(new Hooligan("You"));
+
+        //change state to the in game state
+        game.setCurrentState(new GameState());
     }
 
     @Override
     public void pressButton4(Game game) {
         game.setupPassenger(new Karen("You"));
+
+        //change state to the in game state
+        game.setCurrentState(new GameState());
     }
 
     @Override

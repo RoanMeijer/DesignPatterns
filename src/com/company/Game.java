@@ -4,11 +4,13 @@ import com.company.compartment.BarCompartment;
 import com.company.compartment.Compartment;
 import com.company.compartment.SilentCompartment;
 import com.company.compartmentFactory.*;
+import com.company.emotion.EmotionType;
 import com.company.passenger.*;
 import com.company.state.GameState;
 import com.company.state.StartState;
 import com.company.state.State;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class Game {
@@ -87,6 +89,17 @@ public class Game {
             gameState.loadRandomScenario();
             gameDialog.printGameScenario(gameState.getScenarioDescription());
             keyboardHandler.giveStateOptions();
+            System.out.println(getPassenger().getEmotion(EmotionType.HAPPY));
+            System.out.println(getPassenger().getEmotion(EmotionType.ANGRY));
+            System.out.println(getPassenger().getEmotion(EmotionType.STRESSED));
         }
+    }
+
+    public Passenger getPassenger(){
+        return this.passenger;
+    }
+
+    public Compartment getCurrentCompartment() {
+        return currentCompartment;
     }
 }

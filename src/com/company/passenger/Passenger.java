@@ -10,6 +10,9 @@ public abstract class Passenger {
     private Ticket ticket;
     private final HashMap<EmotionType, Integer> emotions;
     private ArrayList<String> failCauses;
+    protected int happyMultiplier;
+    protected int angryMultiplier;
+    protected int stressMultiplier;
 
     public Passenger(String name) {
         this.emotions = new HashMap<>();
@@ -20,12 +23,7 @@ public abstract class Passenger {
 
     }
 
-    public abstract void increaseHappiness();
-    public abstract void decreaseHappiness();
-    public abstract void increaseStress();
-    public abstract void decreaseStress();
-    public abstract void increaseAnger();
-    public abstract void decreaseAnger();
+    public abstract void changeEmotion(EmotionType emotionType, int value);
 
     private String getName() {
         return this.name;

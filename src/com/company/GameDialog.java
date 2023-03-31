@@ -49,7 +49,7 @@ public class GameDialog {
         waitMilliSeconds(500);
         System.out.println("you look around and notice that you are in a " + compartment);
         waitMilliSeconds(500);
-        System.out.println("Your ride stars of peacefully.");
+        System.out.println("Your ride starts of peacefully.");
     }
 
     public void printIdleTrainNoise(){

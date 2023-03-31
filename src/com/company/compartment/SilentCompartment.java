@@ -12,4 +12,9 @@ public class SilentCompartment implements Compartment {
     public long getCompartmentID() {
         return compartmentID;
     }
+
+    @Override
+    public String getTypeName() {
+        return "Silent Compartment";
+    }
 }

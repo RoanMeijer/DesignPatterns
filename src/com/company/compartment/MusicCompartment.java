@@ -12,4 +12,9 @@ public class MusicCompartment implements Compartment {
     public long getCompartmentID() {
         return compartmentID;
     }
+
+    @Override
+    public String getTypeName() {
+        return "Music Compartment";
+    }
 }

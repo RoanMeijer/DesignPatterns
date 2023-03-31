@@ -12,4 +12,9 @@ public class SecondClassCompartment implements Compartment {
     public long getCompartmentID() {
         return compartmentID;
     }
+
+    @Override
+    public String getTypeName() {
+        return "Second Class Compartment";
+    }
 }

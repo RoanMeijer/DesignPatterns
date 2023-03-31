@@ -12,4 +12,9 @@ public class FirstClassCompartment implements Compartment {
     public long getCompartmentID() {
         return compartmentID;
     }
+
+    @Override
+    public String getTypeName() {
+        return "First Class Compartment";
+    }
 }

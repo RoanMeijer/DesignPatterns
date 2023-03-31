@@ -12,4 +12,9 @@ public class BarCompartment implements Compartment {
     public long getCompartmentID() {
         return compartmentID;
     }
+
+    @Override
+    public String getTypeName() {
+        return "Bar Compartment";
+    }
 }

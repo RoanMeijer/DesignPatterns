@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Random;
+
 public class GameDialog {
     public GameDialog(){
 
@@ -36,5 +38,41 @@ public class GameDialog {
 
     public void printStartGameMessage(){
         System.out.println("********The game will start********");
+    }
+
+    public void printGetOnTrainMessage(String compartment){
+        System.out.println("You  running late to the train station, but you have an important meeting and you can't miss this train!");
+        waitMilliSeconds(500);
+        System.out.println("You look at the ticket machine and quickly buy a ticket and run to your train.");
+        waitMilliSeconds(500);
+        System.out.println("Your train is about to leave so you jump in the first compartment you see.");
+        waitMilliSeconds(500);
+        System.out.println("you look around and notice that you are in a " + compartment);
+        waitMilliSeconds(500);
+        System.out.println("Your ride stars of peacefully.");
+    }
+
+    public void printIdleTrainNoise(){
+        Random random = new Random();
+
+        for(int i = 0; i < 5; i++){
+            switch (random.nextInt(6)) {
+                case 1 -> System.out.println("Rumble Rumble");
+                case 2 -> System.out.println("Rumble Rumble Rumble");
+                case 3 -> System.out.println("Rumble");
+                case 4 -> System.out.println("Choo Choo");
+                case 5 -> System.out.println("Rumble Choo Rumble");
+            }
+
+            waitMilliSeconds(500);
+        }
+    }
+
+    private void waitMilliSeconds(int i){
+        try {
+            Thread.sleep(i);
+        }catch (Exception e){
+
+        }
     }
 }

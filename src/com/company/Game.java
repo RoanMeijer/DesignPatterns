@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.compartment.BarCompartment;
+import com.company.compartment.Compartment;
 import com.company.compartment.SilentCompartment;
 import com.company.compartmentFactory.*;
 import com.company.passenger.*;
@@ -16,6 +17,7 @@ public class Game {
     private Passenger passenger;
     private GameDialog gameDialog;
     private KeyboardHandler keyboardHandler;
+    private Compartment currentCompartment;
 
     public void setupPassenger(Passenger passenger){
         this.passenger = passenger;
@@ -33,14 +35,20 @@ public class Game {
         this.currentState = new StartState();
         keyboardHandler.giveStateOptions();
 
-        // When user choose character change state to game state
-        setCurrentState(new GameState());
         setupTrain();
         startGame();
     }
 
     public void startGame() {
         gameDialog.printStartGameMessage();
+
+        //generate a random number that is a valid index in train compartment array, en get on in this compartment
+        Random random = new Random();
+        currentCompartment = train.getCompartments().get(random.nextInt(train.getCompartments().size()));
+
+        gameDialog.printGetOnTrainMessage(currentCompartment.getTypeName());
+
+        startGameLoop();
     }
 
     public void setupTrain(){

@@ -83,4 +83,14 @@ public class GameDialog {
     public void printGameScenario(String scenario){
         System.out.println(scenario);
     }
+
+    public void printWinMessage(){
+        System.out.println("Congrats, you made it to your destination!");
+        System.out.println("Please Select an option.");
+    }
+
+    public void printLoseMessage(){
+        System.out.println("Unfortunately you did not make it to your destination.");
+        System.out.println("Please Select an option.");
+    }
 }

@@ -6,6 +6,7 @@ import com.company.compartment.SilentCompartment;
 import com.company.compartmentFactory.*;
 import com.company.emotion.EmotionType;
 import com.company.passenger.*;
+import com.company.state.EndState;
 import com.company.state.GameState;
 import com.company.state.StartState;
 import com.company.state.State;
@@ -93,6 +94,9 @@ public class Game {
             System.out.println(getPassenger().getEmotion(EmotionType.ANGRY));
             System.out.println(getPassenger().getEmotion(EmotionType.STRESSED));
         }
+
+        currentState = new EndState();
+        gameDialog.printWinMessage();
     }
 
     public Passenger getPassenger(){

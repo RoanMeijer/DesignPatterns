@@ -75,4 +75,12 @@ public class GameDialog {
 
         }
     }
+
+    public void printChoiceMessage(String option){
+        System.out.println("You have chosen to " + option);
+    }
+
+    public void printGameScenario(String scenario){
+        System.out.println(scenario);
+    }
 }

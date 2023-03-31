@@ -78,9 +78,15 @@ public class Game {
     private void startGameLoop(){
         //gameLength is the number of itterations the game does
         int gameLength = 5;
+        if(!(getCurrentState() instanceof GameState gameState)){
+            System.out.println("A problem has accured, please restart the game");
+            return;
+        }
 
         for(int i = 0; i < gameLength; i++){
-
+            gameState.loadRandomScenario();
+            gameDialog.printGameScenario(gameState.getScenarioDescription());
+            keyboardHandler.giveStateOptions();
         }
     }
 }

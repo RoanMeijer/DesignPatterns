@@ -24,5 +24,6 @@ public class Hooligan extends Passenger {
         }
 
         this.setEmotion(emotionType, getEmotion(emotionType) + value * currentMultiplier);
+        checkForLose();
     }
 }

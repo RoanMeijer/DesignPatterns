@@ -1,26 +1,27 @@
 package com.company.passenger;
 
-import com.company.Ticket;
+import com.company.Game;
+import com.company.GameDialog;
 import com.company.emotion.EmotionType;
-import java.util.ArrayList;
+import com.company.state.EndState;
+
 import java.util.HashMap;
 
 public abstract class Passenger {
     private String name;
-    private Ticket ticket;
     private final HashMap<EmotionType, Integer> emotions;
-    private ArrayList<String> failCauses;
     protected int happyMultiplier;
     protected int angryMultiplier;
     protected int stressMultiplier;
+    private Game game;
 
     public Passenger(String name) {
         this.emotions = new HashMap<>();
         this.name = name;
     }
 
-    private void update() {
-
+    public void setGame(Game game){
+        this.game = game;
     }
 
     public abstract void changeEmotion(EmotionType emotionType, int value);
@@ -45,27 +46,25 @@ public abstract class Passenger {
         this.emotions.put(type, value);
     }
 
+    public void checkForLose(){
+        if(this.getEmotion(EmotionType.HAPPY) < 0){
+            GameDialog gameDialog = new GameDialog();
+            gameDialog.printHappyDeathMessage();
+            game.setCurrentState(new EndState());
+        }
+        if(this.getEmotion(EmotionType.STRESSED) > 10){
+            GameDialog gameDialog = new GameDialog();
+            gameDialog.printStressDeathMessage();
+            game.setCurrentState(new EndState());
+        }
+        if(this.getEmotion(EmotionType.ANGRY) > 10){
+            GameDialog gameDialog = new GameDialog();
+            gameDialog.printAngryDeathMessage();
+            game.setCurrentState(new EndState());
+        }
+    }
+
     public void removeEmotion(EmotionType type) {
         this.emotions.remove(type);
-    }
-
-    private Ticket getTicket() {
-        return this.ticket;
-    }
-
-    private void setTicket(Ticket ticket) {
-        this.ticket = ticket;
-    }
-
-    private ArrayList<String> getFailCauses() {
-        return this.failCauses;
-    }
-
-    private void addFailCause(String failCause) {
-        this.failCauses.add(failCause);
-    }
-
-    private void removeFailCause(String failCause) {
-        this.failCauses.remove(failCause);
     }
 }

@@ -24,5 +24,6 @@ public class Businessman extends Passenger {
         }
 
         this.setEmotion(emotionType, getEmotion(emotionType) + value * currentMultiplier);
+        checkForLose();
     }
 }

@@ -93,4 +93,16 @@ public class GameDialog {
         System.out.println("Unfortunately you did not make it to your destination.");
         System.out.println("Please Select an option.");
     }
+
+    public void printHappyDeathMessage(){
+        System.out.println("You lost all your happiness in life, your body gives out and you die of depression.");
+    }
+
+    public void printStressDeathMessage(){
+        System.out.println("You are extremely stressed, your blood pressure gets way to high and your heart explodes.");
+    }
+
+    public void printAngryDeathMessage(){
+        System.out.println("You are extremely angry, you decide to hit an elder guy, but you did not know he was a retired marine that killed osama bin laden. You die.");
+    }
 }

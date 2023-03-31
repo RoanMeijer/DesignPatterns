@@ -24,6 +24,7 @@ public class Game {
 
     public void setupPassenger(Passenger passenger){
         this.passenger = passenger;
+        this.passenger.setGame(this);
     }
 
     public void startSetupGame(){
@@ -87,16 +88,19 @@ public class Game {
         }
 
         for(int i = 0; i < gameLength; i++){
-            gameState.loadRandomScenario();
-            gameDialog.printGameScenario(gameState.getScenarioDescription());
-            keyboardHandler.giveStateOptions();
-            System.out.println(getPassenger().getEmotion(EmotionType.HAPPY));
-            System.out.println(getPassenger().getEmotion(EmotionType.ANGRY));
-            System.out.println(getPassenger().getEmotion(EmotionType.STRESSED));
+            if(!(currentState instanceof EndState)){
+                gameState.loadRandomScenario();
+                gameDialog.printGameScenario(gameState.getScenarioDescription());
+                keyboardHandler.giveStateOptions();
+            }
         }
 
-        currentState = new EndState();
-        gameDialog.printWinMessage();
+        if(currentState instanceof GameState){
+            currentState = new EndState();
+            gameDialog.printWinMessage();
+        }
+
+        keyboardHandler.giveStateOptions();
     }
 
     public Passenger getPassenger(){

@@ -9,8 +9,8 @@ public class EndState  extends State {
 
     public EndState() {
         options = new ArrayList<>();
-        options.add("");
-        options.add("");
+        options.add("Quit game");
+        options.add("Try Again");
         options.add("");
         options.add("");
     }

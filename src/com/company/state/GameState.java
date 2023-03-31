@@ -36,7 +36,7 @@ public class GameState extends State {
         options.add("talk to them");
         options.add("call police");
 
-        affectedEmotionType = EmotionType.HAPPY;
+        affectedEmotionType = EmotionType.ANGRY;
         consequence.clear();
         consequence.add(-1);
         consequence.add(-3);

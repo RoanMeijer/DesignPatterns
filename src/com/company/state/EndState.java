@@ -1,11 +1,13 @@
 package com.company.state;
 
 import com.company.Game;
+import com.company.GameDialog;
 
 import java.util.ArrayList;
 
 public class EndState  extends State {
     private final ArrayList<String> options;
+    private final GameDialog gameDialog = new GameDialog();
 
     public EndState() {
         options = new ArrayList<>();
@@ -17,12 +19,12 @@ public class EndState  extends State {
 
     @Override
     public void pressButton1(Game game) {
-
+        gameDialog.printQuitMessage();
     }
 
     @Override
     public void pressButton2(Game game) {
-
+        game.startSetupGame();
     }
 
     @Override

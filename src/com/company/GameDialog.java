@@ -105,4 +105,8 @@ public class GameDialog {
     public void printAngryDeathMessage(){
         System.out.println("You are extremely angry, you decide to hit an elder guy, but you did not know he was a retired marine that killed osama bin laden. You die.");
     }
+
+    public void printQuitMessage(){
+        System.out.println("Thanks for playing, maybe the train will ride another day.");
+    }
 }

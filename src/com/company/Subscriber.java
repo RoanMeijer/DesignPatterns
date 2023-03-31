@@ -1,5 +1,5 @@
 package com.company;
 
 public interface Subscriber {
-    void update();
+    void update(String event);
 }

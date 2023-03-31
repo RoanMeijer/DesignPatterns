@@ -2,18 +2,19 @@ package com.company.passenger;
 
 import com.company.Game;
 import com.company.GameDialog;
+import com.company.Subscriber;
 import com.company.emotion.EmotionType;
 import com.company.state.EndState;
 
 import java.util.HashMap;
 
-public abstract class Passenger {
+public abstract class Passenger implements Subscriber {
     private String name;
     private final HashMap<EmotionType, Integer> emotions;
     protected int happyMultiplier;
     protected int angryMultiplier;
     protected int stressMultiplier;
-    private Game game;
+    protected Game game;
 
     public Passenger(String name) {
         this.emotions = new HashMap<>();

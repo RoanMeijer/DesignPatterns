@@ -109,4 +109,12 @@ public class GameDialog {
     public void printQuitMessage(){
         System.out.println("Thanks for playing, maybe the train will ride another day.");
     }
+
+    public void printTrainLateMessage(){
+        System.out.println("You just heard the train is coming in late! This effects your mood negatively");
+    }
+
+    public void printTrainEarlyMessage(){
+        System.out.println("You just heard the train is coming in early! This effects your mood positively");
+    }
 }

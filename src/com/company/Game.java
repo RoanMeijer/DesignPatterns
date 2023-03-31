@@ -25,6 +25,7 @@ public class Game {
     public void setupPassenger(Passenger passenger){
         this.passenger = passenger;
         this.passenger.setGame(this);
+        train.getTrainNotifier().subscribe(passenger);
     }
 
     public void startSetupGame(){
@@ -89,6 +90,7 @@ public class Game {
 
         for(int i = 0; i < gameLength; i++){
             if(!(currentState instanceof EndState)){
+                train.checkTime();
                 gameState.loadRandomScenario();
                 gameDialog.printGameScenario(gameState.getScenarioDescription());
                 keyboardHandler.giveStateOptions();
@@ -109,5 +111,9 @@ public class Game {
 
     public Compartment getCurrentCompartment() {
         return currentCompartment;
+    }
+
+    public GameDialog getGameDialog(){
+        return this.gameDialog;
     }
 }

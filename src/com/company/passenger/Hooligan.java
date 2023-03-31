@@ -26,4 +26,20 @@ public class Hooligan extends Passenger {
         this.setEmotion(emotionType, getEmotion(emotionType) + value * currentMultiplier);
         checkForLose();
     }
+
+    @Override
+    public void update(String event) {
+        switch (event){
+            case "late":
+                this.game.getGameDialog().printTrainLateMessage();
+                changeEmotion(EmotionType.HAPPY, -2);
+                changeEmotion(EmotionType.ANGRY, 3);
+                changeEmotion(EmotionType.STRESSED, 2);
+            case "early":
+                this.game.getGameDialog().printTrainEarlyMessage();
+                changeEmotion(EmotionType.HAPPY, 2);
+                changeEmotion(EmotionType.ANGRY, -3);
+                changeEmotion(EmotionType.STRESSED, -2);
+        }
+    }
 }

@@ -3,38 +3,14 @@ package com.company;
 import com.company.compartment.Compartment;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Train {
     private ArrayList<Compartment> compartments;
-    private ArrayList<Subscriber> subscribers;
+    private TrainNotifier trainNotifier = new TrainNotifier();
 
     public Train() {
         this.compartments = new ArrayList<>();
-        this.subscribers = new ArrayList<>();
-    }
-
-    public void subscribe() {
-
-    }
-
-    public void unsubscribe() {
-
-    }
-
-    public void notifySubscribers() {
-
-    }
-
-    public ArrayList<Subscriber> getSubscribers() {
-        return this.subscribers;
-    }
-
-    public void addSubscriber(Subscriber subscriber) {
-        this.subscribers.add(subscriber);
-    }
-
-    public void removeSubscriber(Subscriber subscriber) {
-        this.subscribers.remove(subscriber);
     }
 
     public ArrayList<Compartment> getCompartments() {
@@ -47,5 +23,21 @@ public class Train {
 
     public void removeCompartment(Compartment compartment) {
         this.compartments.remove(compartment);
+    }
+
+    public TrainNotifier getTrainNotifier(){
+        return this.trainNotifier;
+    }
+
+    public void checkTime(){
+        Random random = new Random();
+        switch (random.nextInt(10)){
+            case 1:
+                trainNotifier.notifyListeners("late");
+                break;
+            case 2:
+                trainNotifier.notifyListeners("early");
+                break;
+        }
     }
 }
